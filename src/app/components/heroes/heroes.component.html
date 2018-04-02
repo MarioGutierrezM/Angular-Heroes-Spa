@@ -1,0 +1,25 @@
+<h1 class="animated fadeIn fast">
+  Heroes
+  <small>Marvel y DC</small>
+</h1>
+<hr>
+
+<div class="card-columns animated fadeIn"><!-- index es la posicion en el arreglo-->
+  <div class="card" *ngFor="let heroe of heroes; let i = index"> 
+    <img class="card-img-top" [src]="heroe.img" [alt]="heroe.nombre">
+    <div class="card-body">
+      <h5 class="card-title">{{heroe.nombre}}</h5>
+      <p class="card-text">{{heroe.bio}}</p>
+      <p class="card-text">
+        <small class="text-muted">Aparición: {{heroe.aparicion}}</small>
+      </p>
+      <!-- Dos formas de mandar algo por parametro -->
+      <!-- 1 con boton y metodo click--> 
+      <button type="button" class="btn btn-outline-primary btn-block" (click)="verHeroe(i)">
+        Ver más...
+      </button> 
+      <!-- 2 por medio de un link --> 
+      <!-- <a class="btn btn-outline-primary" [routerLink]="['/heroe',i]"> Ver mas link ...</a> -->
+    </div>
+  </div>
+</div>
